@@ -1,0 +1,62 @@
+{
+	"name": "template",
+	"description": "Electron + React Template",
+	"version": "1.0.0",
+	"license": "MIT",
+	"publisher": "Your Name",
+	"author": {
+		"name": "Your Name"
+	},
+	"main": "app/main.js",
+	"scripts": {
+		"postinstall": "install-app-deps",
+		"build": "gulp build",
+		"start": "gulp",
+		"dist": "gulp dist"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.6.0",
+		"@babel/plugin-proposal-class-properties": "^7.5.5",
+		"@babel/preset-env": "^7.6.0",
+		"@babel/preset-react": "^7.0.0",
+		"babel-jest": "^25.3.0",
+		"electron": "7.2.4",
+		"electron-builder": "^20.39.0",
+		"electron-react-devtools": "^0.5.3",
+		"gulp": "^4.0.2",
+		"gulp-babel": "^8.0.0",
+		"gulp-clean-css": "^4.2.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-livereload": "^4.0.1",
+		"jest": "^25.3.0",
+		"react-test-renderer": "^16.8.6"
+	},
+	"dependencies": {
+		"electron-is-dev": "^1.1.0",
+		"react": "^16.8.6",
+		"react-dom": "^16.8.6",
+		"react-router-dom": "^5.0.1"
+	},
+	"build": {
+		"appId": "template.electron.react",
+		"linux": {
+			"target": [
+				"dir"
+			]
+		},
+		"win": {
+			"target": [
+				{
+					"target": "dir",
+					"arch": [
+						"x64",
+						"ia32"
+					]
+				}
+			]
+		},
+		"mac": {
+			"category": "your.app.category.type"
+		}
+	}
+}
