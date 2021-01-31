@@ -1,4 +1,4 @@
-import { App, BrowserWindow } from "electron";
+import { app, BrowserWindow } from "electron";
 import path from "path";
 import url from "url";
 
@@ -8,7 +8,6 @@ const createWindow = () => {
 	mainWindow = new BrowserWindow({
 		width: 800,
 		height: 600,
-		frame: false,
 		useContentSize: false,
 		webPreferences: {
 			nodeIntegration: true,
@@ -29,15 +28,15 @@ const createWindow = () => {
 	});
 };
 
-App.on("ready", createWindow);
+app.on("ready", createWindow);
 
-App.on("window-all-closed", () => {
+app.on("window-all-closed", () => {
 	if (process.platform !== "darwin") {
-		App.quit();
+		app.quit();
 	}
 });
 
-App.on("activate", () => {
+app.on("activate", () => {
 	if (mainWindow === null) {
 		createWindow();
 	}
