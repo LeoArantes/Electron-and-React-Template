@@ -1,4 +1,4 @@
-# Electron and React Template
+# Electron and React Template 
 
 A simple template of an application using Electron and React
 
