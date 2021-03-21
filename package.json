@@ -1,62 +1,66 @@
 {
-	"name": "template",
-	"description": "Electron + React Template",
+	"name": "project-name",
+	"description": "<description>",
 	"version": "1.0.0",
-	"license": "MIT",
-	"publisher": "Your Name",
-	"author": {
-		"name": "Your Name"
-	},
-	"main": "app/main.js",
-	"scripts": {
-		"postinstall": "install-app-deps",
-		"build": "gulp build",
-		"start": "gulp",
-		"dist": "gulp dist"
-	},
-	"devDependencies": {
-		"@babel/core": "^7.6.0",
-		"@babel/plugin-proposal-class-properties": "^7.5.5",
-		"@babel/preset-env": "^7.6.0",
-		"@babel/preset-react": "^7.0.0",
-		"babel-jest": "^25.3.0",
-		"electron": "7.2.4",
-		"electron-builder": "^20.39.0",
-		"electron-react-devtools": "^0.5.3",
-		"gulp": "^4.0.2",
-		"gulp-babel": "^8.0.0",
-		"gulp-clean-css": "^4.2.0",
-		"gulp-concat": "^2.6.1",
-		"gulp-livereload": "^4.0.1",
-		"jest": "^25.3.0",
-		"react-test-renderer": "^16.8.6"
-	},
+	"author": "<Your Name>",
+	"private": true,
+	"homepage": ".",
+	"main": "build/electron/main.js",
 	"dependencies": {
-		"electron-is-dev": "^1.1.0",
-		"react": "^16.8.6",
-		"react-dom": "^16.8.6",
-		"react-router-dom": "^5.0.1"
+		"@testing-library/jest-dom": "^5.11.4",
+		"@testing-library/react": "^11.1.0",
+		"@testing-library/user-event": "^12.1.10",
+		"@types/electron-devtools-installer": "^2.2.0",
+		"electron-devtools-installer": "^3.1.1",
+		"electron-is-dev": "^2.0.0",
+		"electron-reload": "^1.5.0",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"react-scripts": "4.0.3",
+		"typescript": "^4.2.3",
+		"web-vitals": "^1.0.1"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"postinstall": "electron-builder install-app-deps",
+		"electron:dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && tsc -p electron -w\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
+		"electron:build": "yarn build && tsc -p electron && electron-builder"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
 	},
 	"build": {
-		"appId": "template.electron.react",
-		"linux": {
-			"target": [
-				"dir"
-			]
-		},
-		"win": {
-			"target": [
-				{
-					"target": "dir",
-					"arch": [
-						"x64",
-						"ia32"
-					]
-				}
-			]
-		},
-		"mac": {
-			"category": "your.app.category.type"
+		"extends": null,
+		"files": [
+			"build/**/*"
+		],
+		"directories": {
+			"buildResources": "assets"
 		}
+	},
+	"devDependencies": {
+		"concurrently": "^6.0.0",
+		"cross-env": "^7.0.3",
+		"electron": "^12.0.1",
+		"electron-builder": "^22.10.5",
+		"wait-on": "^5.3.0"
 	}
 }
