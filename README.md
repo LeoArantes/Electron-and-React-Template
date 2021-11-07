@@ -1,16 +1,25 @@
-# Electron and React Template
-Inspired by https://medium.com/@devesu/how-to-build-a-react-based-electron-app-d0f27413f17f
+# Electron and React app Template
 
-## Get started
-`git clone https://github.com/LeoArantes/Electron-and-React-Template.git` 
-and
-`cd ./Electron-and-React-template`
-`npm i`
+# Clone and install dependencies
 
-## Run
-`yarn electron:dev`
+```bash
+git clone ...
+cd electron-and-react-template/
+yarn
+```
 
-## Build
-`yarn electron:build`
+</br>
 
-#### Have fun!
+# Launching application for development
+
+```bash
+yarn electron:serve
+```
+
+</br>
+
+# Generating installer
+
+```bash
+yarn electron:build
+```
